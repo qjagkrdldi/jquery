@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<title></title>	
+<link rel="stylesheet" href="css/main.css">
+<script src="js/jquery.easing.1.3.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+ <script src="js/jquery.animateNumber.min.js"></script>
+	
+<!--[if lt IE 9]>
+<script src="js/IE9.js"></script>
+<script src="js/html5shiv.js"></script>
+ <script src="js/respond.min.js"></script>
+ 
+<![endif]-->
+<!--[if lt IE 8]>
+<script src="js/IE8.js"></script>
+<script src="js/IE8.js">IE7_PNG_SUFFIX=".png";</script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+<script src="js/IE7.js"></script>
+<![endif]-->	
+
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="bar"></div>
+        <div class="rate" data-rate="60"></div>
+    </div>
+    <script>
+        var progressWrap = $('.progress-bar'),
+            progressBar = progressWrap.find('.bar'),
+            progressText = progressWrap.find('.rate'),
+            progressRate = progressText.attr('data-rate');
+        
+            //bar animation 2.5s width 바뀌는 애니메이트
+            
+                progressBar.animate({width:progressRate + '%'},2500);
+        
+            /* 
+            //첫번째 setinterval
+            setInterval(textAnimation, 1000/10);
+        
+            function textAnimation(){
+                var currentRate = progressBar.width() / progressWrap.width() * 100;
+                progressText.text(Math.ceil(currentRate) + '%');
+            }
+            */
+        
+            //두번째 
+            // animate 옵션을 활용 사용자속성 만들고, 속성이 바뀌는 것을 작성 가능. 
+            
+            $({hour:0}).animate({hour:60},{
+                duration:2500,
+                progress:function(){
+                    var now = this.hour;
+                    progressText.text(Math.ceil(now)+'%');
+                }
+            })
+            
+        
+            //세번째
+//            progressText.animateNumber({ number: progressRate });
+        
+//                var percent_number_step = $.animateNumber.numberStepFactories.append(' %');
+//               progressText.animateNumber(
+//                  {
+//                    number: progressRate,
+//                    numberStep: percent_number_step
+//                  },
+//                   2500
+//               );
+            
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Elements</title>
+    <style>
+        section{
+            height:500px;
+        }
+        section:nth-of-type(even){
+            background:#ccc;
+        }
+        .target{
+            width:500px;
+            margin:0 auto;
+            padding-bottom:300px;
+            position: relative;
+            top:auto;
+        }
+        .target .content{
+            width:100%;
+            background:#3498db;
+            color:#fff;
+            text-align: center;
+            height:100px;
+            line-height: 100px;
+        }
+        .target.active .content{
+            width:500px;
+            left:50%;
+            transform: translateX(-50%);
+            position: fixed;
+            top:400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sticky Elements</h1>
+    <section>
+        <h2>section1</h2>
+    </section>
+    <section>
+        <h2>section2</h2>
+    </section>
+    <section>
+        <h2>section3</h2>
+        <div class="target">
+            <div class="content">
+                Sticky Element
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>section4</h2>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        let $target = $('.target'),
+            $targetCont = $target.find('.content'),
+            $targetOST = $target.offset().top;
+            
+        
+            $(window).scroll(function(){
+                $current =  $(this).scrollTop();
+                if($current >= $targetOST-400){
+                   $target.addClass('active');
+
+                    if($current >= $targetOST-100){
+                         $target.removeClass('active');
+
+                        $target.css({
+                            paddingTop:'300px',
+                            paddingBottom:0
+                        })
+                       }
+                   }else{
+                       $target.removeClass('active');
+
+                       $target.css({
+                            paddingBottom:'300px',
+                            paddingTop:0
+                        })
+                   }
+            })
+            
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

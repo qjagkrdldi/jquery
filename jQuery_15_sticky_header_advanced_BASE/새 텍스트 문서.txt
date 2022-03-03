@@ -1,0 +1,31 @@
+A.append(B)
+
+A요소의 내용의 뒤에 B를 추가
+B가있으면 이동
+
+
+
+A.appendTo(B)
+
+B요소의 내용의 뒤에 A를 추가(이동)
+
+
+
+A.prepend(B)
+
+A 내용의 앞에 B를 추가(이동)
+
+
+
+A.prependTo(B)
+
+B 내용의 앞에 A를 추가(이동)
+
+
+엘리먼트 높이값구할때
+height()
+innerHeight() 패딩값포함 높이
+outerHeight() 패딩,보더값 포함 높이
+
+
+
